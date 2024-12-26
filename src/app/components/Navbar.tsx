@@ -1,4 +1,5 @@
 //components/navbar.tsx
+import Link from 'next/link';
 
 const Navbar : React.FC = () => {
     return (
