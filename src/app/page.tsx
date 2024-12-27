@@ -113,21 +113,42 @@
 // }
 
 // USEROOTER
+// 'use client'
+ 
+// import { useRouter } from 'next/navigation'
+ 
+// export default function Page() {
+//   const router = useRouter()
+ 
+//   return (
+//     <>
+//       <button type="button" onClick={() => router.push('/dashboard')}>
+//       Dashbord
+//     </button>
+//     <button type="button" onClick={() => router.push('/profile')}>
+//       Profile
+//     </button>
+//     </>
+//   )
+// }
+
 'use client'
  
-import { useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
  
-export default function Page() {
-  const router = useRouter()
+export default function LocaleSwitcher() {
+  const pathname = usePathname()
+ 
+  function switchLocale(locale: string) {
+    // e.g. '/en/about' or '/fr/contact'
+    const newPath = `/${locale}${pathname}`
+    window.history.replaceState(null, '', newPath)
+  }
  
   return (
     <>
-      <button type="button" onClick={() => router.push('/profile')}>
-      Dashbord
-    </button>
-    <button type="button" onClick={() => router.push('/profile')}>
-      Profile
-    </button>
+      <button onClick={() => switchLocale('en')}>English</button>
+      <button onClick={() => switchLocale('fr')}>French</button>
     </>
   )
 }
