@@ -105,22 +105,51 @@
 
 
 //  £££££££££   APPRENTISAGE NAVIGATION £££££££££££££££££
+// LINK
 // import Link from 'next/link'
  
 // export default function Page() {
 //   return <Link href="/dashboard">Dashboard</Link>
 // }
 
-'use client'
+// USEROOTER
+// 'use client'
  
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
  
-export default function Page() {
-  const router = useRouter()
+// export default function Page() {
+//   const router = useRouter()
  
-  return (
-    <button type="button" onClick={() => router.push('/dashboard')}>
-      Dashboard
-    </button>
-  )
+//   return (
+//     <button type="button" onClick={() => router.push('/dashboard')}>
+//       Dashboard
+//     </button>
+//   )
+// }
+
+// REDIRECT
+import { redirect } from 'next/navigation'
+ 
+async function fetchTeam(id: string) {
+  const res = await fetch('https://...')
+  if (!res.ok) return undefined
+  return res.json()
+}
+ 
+export default async function page({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const id = (await params).id
+  if (!id) {
+    redirect('/login')
+  }
+ 
+  const team = await fetchTeam(id)
+  if (!team) {
+    redirect('/join')
+  }
+ 
+  // ...
 }
