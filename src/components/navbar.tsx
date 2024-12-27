@@ -1,7 +1,7 @@
 //components/navbar.tsx
 import Link from 'next/link';
 
-const Navbar : React.FC = () => {
+const Navbar  = () => {
     return (
         <nav>
             <Link href = "/dashboard">Acceuil</Link>

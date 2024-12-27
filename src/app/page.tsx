@@ -1,5 +1,8 @@
 // import Image from "next/image";
 
+import Navbar from "../components/navbar";
+
+
 // export default function Home() {
 //   return (
 //     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -106,10 +109,16 @@
 
 //  £££££££££   APPRENTISAGE NAVIGATION £££££££££££££££££
 // LINK
-// import Link from 'next/link'
+// import { useRouter } from 'next/navigation'
  
 // export default function Page() {
-//   return <Link href="/dashboard">Dashboard</Link>
+//   const router = useRouter();
+//   return (
+//     <button type="button" onClick={() => router.push('/components/navbar')}>
+//          Profile
+//   </button>
+//   );
+  
 // }
 
 // USEROOTER
@@ -132,25 +141,35 @@
 //   )
 // }
 
-'use client'
+// 'use client'
  
-import { usePathname } from 'next/navigation'
+// import { usePathname } from 'next/navigation'
  
-export default function LocaleSwitcher() {
-  const pathname = usePathname()
+// export default function LocaleSwitcher() {
+//   const pathname = usePathname()
  
-  function switchLocale(locale: string) {
-    // e.g. '/en/about' or '/fr/contact'
-    const newPath = `/${locale}${pathname}`
-    window.history.replaceState(null, '', newPath)
-  }
+//   function switchLocale(locale: string) {
+//     // e.g. '/en/about' or '/fr/contact'
+//     const newPath = `/${locale}${pathname}`
+//     window.history.replaceState(null, '', newPath)
+//   }
  
+//   return (
+//     <>
+//       <button onClick={() => switchLocale('en')}>English</button>
+//       <button onClick={() => switchLocale('fr')}>French</button>
+//     </>
+//   )
+// }
+
+ const Home : React.FC = ()=> {
   return (
     <>
-      <button onClick={() => switchLocale('en')}>English</button>
-      <button onClick={() => switchLocale('fr')}>French</button>
+    <Navbar/>
     </>
-  )
+  );
 }
+
+export default Home
 
 
