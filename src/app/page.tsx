@@ -154,7 +154,7 @@
 //   )
 // }
 
-import Navbar from "../components/navbar";
+import Navbar from "./components/navbar";
  const Home : React.FC = ()=> {
   return (
     <>
