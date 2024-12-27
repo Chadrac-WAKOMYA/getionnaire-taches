@@ -100,8 +100,27 @@
 //   );
 // }
 
-import Link from 'next/link'
+
+
+
+
+//  £££££££££   APPRENTISAGE NAVIGATION £££££££££££££££££
+// import Link from 'next/link'
+ 
+// export default function Page() {
+//   return <Link href="/dashboard">Dashboard</Link>
+// }
+
+'use client'
+ 
+import { useRouter } from 'next/navigation'
  
 export default function Page() {
-  return <Link href="/dashboard">Dashboard</Link>
+  const router = useRouter()
+ 
+  return (
+    <button type="button" onClick={() => router.push('/dashboard')}>
+      Dashboard
+    </button>
+  )
 }
