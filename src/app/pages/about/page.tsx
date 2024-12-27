@@ -1,5 +1,5 @@
 // pages/About.tsx
 const About : React.FC = () => {
-    return <>A propos de gestionnaire de tâches</>;
+    return <h1>A propos de gestionnaire de tâches</h1>;
 };
 export default About;
